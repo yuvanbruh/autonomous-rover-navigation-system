@@ -61,49 +61,50 @@ The system also evaluates robustness under multiple fault conditions including G
 ---
 
 ## System Architecture
-
 ```mermaid
-flowchart TD
+graph TD
+    %% Style Definitions
+    classDef env fill:#f9f9f9,stroke:#333,stroke-width:1px;
+    classDef sensor fill:#d1e8ed,stroke:#007a87,stroke-width:2px;
+    classDef core fill:#e2ece9,stroke:#2e6f40,stroke-width:2px;
+    classDef loop fill:#fff2cc,stroke:#d6b656,stroke-width:1px,stroke-dasharray: 5 5;
 
-A[GPS]
-B[IMU]
-C[LiDAR]
+    Env[Environment] --> Sensors
+    
+    subgraph Sensors [Sensors]
+        GPS[GPS]
+        IMU[IMU]
+        LiDAR[LiDAR]
+    end
+    
+    Sensors --> EKF[State Estimation: EKF]
+    EKF --> Map[World Representation: Occupancy Grid Mapping]
+    
+    subgraph Expl [Exploration Layer]
+        FD[Frontier Detection] --> FS[Frontier Selection]
+    end
+    Map --> Expl
+    
+    subgraph Mission [Mission Autonomy]
+        MA{FSM State}
+        MA --> EXPLORE
+        MA --> RETURN_HOME
+        MA --> MISSION_COMPLETE
+    end
+    Expl --> Mission
+    
+    Mission --> Plan[Path Planning: A* Planner]
+    Plan --> Track[Path Tracking: Pure Pursuit]
+    Track --> Dynamics[Vehicle Dynamics: Motion Model]
+    
+    Dynamics --> EnvUpdate[Environment Update]
+    EnvUpdate -.->|Feedback| Sensors
 
-A --> D[EKF Localization]
-B --> D
-
-D --> E[Occupancy Grid Mapping]
-C --> E
-
-E --> F[Frontier Detection]
-
-F --> G[Frontier Selection]
-
-G --> H[A* Path Planner]
-
-H --> I[Pure Pursuit Controller]
-
-I --> J[Rover Dynamics]
-
-J --> K[Environment Update]
-
-K --> A
-K --> B
-K --> C
-
-E --> L[Mission State Machine]
-
-L --> L1[EXPLORE]
-L --> L2[RETURN_HOME]
-L --> L3[MISSION_COMPLETE]
-
-N[GPS Noise] --> D
-O[GPS Dropout] --> D
-
-P[Wheel Slip Fault] --> J
+    %% Apply Styles
+    class Env,EnvUpdate env;
+    class Sensors,GPS,IMU,LiDAR sensor;
+    class EKF,Map,FD,FS,MA,EXPLORE,RETURN_HOME,MISSION_COMPLETE,Plan,Track,Dynamics core;
 ```
-
----
 
 ## Fault Injection Experiments
 
