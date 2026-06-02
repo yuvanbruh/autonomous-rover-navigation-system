@@ -61,7 +61,7 @@ The system also evaluates robustness under multiple fault conditions including G
 ---
 ## System Architecture
 
-![System Architecture](screenshots/architecture_diagram.png)
+![System Architecture](screenshots/archdiag.png)
 
 ## Fault Injection Experiments
 
