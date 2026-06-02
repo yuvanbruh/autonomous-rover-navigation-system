@@ -61,7 +61,7 @@ The system also evaluates robustness under multiple fault conditions including G
 ---
 ## System Architecture
 <p align="center">
-  <img src="screenshots/archdiag.png" width="100%">
+  <img src="screenshots/arch.png" width="100%">
 </p>
 
 
