@@ -59,52 +59,9 @@ The system also evaluates robustness under multiple fault conditions including G
 * Severe Wheel Slip
 
 ---
-
 ## System Architecture
-```mermaid
-graph TD
-    %% Style Definitions
-    classDef env fill:#f9f9f9,stroke:#333,stroke-width:1px;
-    classDef sensor fill:#d1e8ed,stroke:#007a87,stroke-width:2px;
-    classDef core fill:#e2ece9,stroke:#2e6f40,stroke-width:2px;
-    classDef loop fill:#fff2cc,stroke:#d6b656,stroke-width:1px,stroke-dasharray: 5 5;
 
-    Env[Environment] --> Sensors
-    
-    subgraph Sensors [Sensors]
-        GPS[GPS]
-        IMU[IMU]
-        LiDAR[LiDAR]
-    end
-    
-    Sensors --> EKF[State Estimation: EKF]
-    EKF --> Map[World Representation: Occupancy Grid Mapping]
-    
-    subgraph Expl [Exploration Layer]
-        FD[Frontier Detection] --> FS[Frontier Selection]
-    end
-    Map --> Expl
-    
-    subgraph Mission [Mission Autonomy]
-        MA{FSM State}
-        MA --> EXPLORE
-        MA --> RETURN_HOME
-        MA --> MISSION_COMPLETE
-    end
-    Expl --> Mission
-    
-    Mission --> Plan[Path Planning: A* Planner]
-    Plan --> Track[Path Tracking: Pure Pursuit]
-    Track --> Dynamics[Vehicle Dynamics: Motion Model]
-    
-    Dynamics --> EnvUpdate[Environment Update]
-    EnvUpdate -.->|Feedback| Sensors
-
-    %% Apply Styles
-    class Env,EnvUpdate env;
-    class Sensors,GPS,IMU,LiDAR sensor;
-    class EKF,Map,FD,FS,MA,EXPLORE,RETURN_HOME,MISSION_COMPLETE,Plan,Track,Dynamics core;
-```
+![System Architecture](screenshots/architecture_diagram.png)
 
 ## Fault Injection Experiments
 
