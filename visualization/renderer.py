@@ -1,13 +1,21 @@
 import matplotlib.pyplot as plt
 
-def render_world(world):
+def render_world(world,
+                 current_state,
+                 battery):
 
-    # plt.figure(figsize=(8,8))
+    plt.imshow(
+        world,
+        cmap="gray",
+        origin="upper"
+    )
+    
 
-    plt.imshow(world, cmap='tab20')
+    plt.title(
+    f"State: {current_state} | Battery: {battery:.1f}",
+    fontsize=14,
+    fontweight="bold"
+)
 
-    plt.title("Mars Environment")
-
-    plt.colorbar()
-
-    # plt.show()
+    plt.xlabel("Y Position")
+    plt.ylabel("X Position")

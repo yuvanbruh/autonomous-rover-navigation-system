@@ -48,7 +48,7 @@ replan_counter=0
 REPLAN_INTERVAL = 20
 path=[]
 current_state = MISSION_EXPLORE
-battery=18
+battery=19
 home_x = rover.x 
 home_y = rover.y
 
@@ -59,7 +59,9 @@ current_goal =None
 while True:
     loop_count+=1
     battery -=0.01
-    render_world(occupancy_grid)
+    render_world(occupancy_grid,
+                 current_state,
+                 battery)
     render_rover(rover)
     rover.slip_factor = wheel_slip_model(
         world,
@@ -123,6 +125,7 @@ while True:
     elif current_state== MISSION_COMPLETE:
         
         print("MISSION COMPLETE")
+        input("Press Enter to exit...")
         break
     
     replan_counter+=1
@@ -177,6 +180,7 @@ while True:
 
       current_goal = None
     render_path(path)
+    plt.legend(loc="upper right")
     ekf_x = ekf.state[0]
     ekf_y = ekf.state[1]
     ekf_theta = ekf.state[2]
