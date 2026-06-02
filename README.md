@@ -60,9 +60,78 @@ The system also evaluates robustness under multiple fault conditions including G
 
 ---
 ## System Architecture
-<p align="center">
-  <img src="screenshots/archh.png" width="1400">
-</p>
+```mermaid
+flowchart LR
+
+subgraph Sensors
+    GPS[GPS]
+    IMU[IMU]
+    LIDAR[LiDAR]
+end
+
+GPS --> EKF
+IMU --> EKF
+
+EKF[EKF Localization]
+
+LIDAR --> MAP
+EKF --> MAP
+
+MAP[Occupancy Grid Mapping]
+
+MAP --> FRONTIER
+
+FRONTIER[Frontier Exploration]
+
+FRONTIER --> ASTAR
+
+ASTAR[A* Path Planner]
+
+ASTAR --> PP
+
+PP[Pure Pursuit Controller]
+
+PP --> DYN
+
+DYN[Rover Dynamics & Environment]
+
+DYN -. Feedback .-> GPS
+DYN -. Feedback .-> IMU
+DYN -. Feedback .-> LIDAR
+```
+
+```mermaid
+flowchart TD
+
+EXPLORE[EXPLORE]
+
+EXPLORE --> CHECK{Battery < Threshold?}
+
+CHECK -->|No| EXPLORE
+
+CHECK -->|Yes| RETURN[RETURN_HOME]
+
+RETURN --> HOME{Reached Home?}
+
+HOME -->|No| RETURN
+
+HOME -->|Yes| COMPLETE[MISSION_COMPLETE]
+```
+```mermaid
+flowchart TD
+
+NOISE[GPS Noise]
+
+DROPOUT[GPS Dropout]
+
+SLIP[Wheel Slip]
+
+NOISE --> EKF[EKF Localization]
+
+DROPOUT --> EKF
+
+SLIP --> DYN[Rover Dynamics]
+```
 
 
 ## Fault Injection Experiments
