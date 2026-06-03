@@ -217,7 +217,17 @@ ROVER/
 | visualization | Rendering, path visualization, trajectory analysis |
 ```
 ```
+## Installation
 
+```bash
+git clone https://github.com/yourusername/rover.git
+
+cd rover
+
+pip install -r requirements.txt
+
+python main.py
+```
 ## Technologies Used
 
 * Python
