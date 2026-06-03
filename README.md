@@ -59,80 +59,25 @@ The system also evaluates robustness under multiple fault conditions including G
 * Severe Wheel Slip
 
 ---
+# Autonomous Rover Navigation System
+
 ## System Architecture
-```mermaid
-flowchart LR
 
-subgraph Sensors
-    GPS[GPS]
-    IMU[IMU]
-    LIDAR[LiDAR]
-end
+The rover performs autonomous exploration using sensor fusion, occupancy grid mapping, frontier-based exploration, A* path planning, and Pure Pursuit control.
 
-GPS --> EKF
-IMU --> EKF
+<p align="center">
+  <img src="screenshots/arcdiag.png" width="100%">
+</p>
 
-EKF[EKF Localization]
+---
 
-LIDAR --> MAP
-EKF --> MAP
+## Mission Autonomy and Fault Tolerance
 
-MAP[Occupancy Grid Mapping]
+Mission execution is governed by a finite-state autonomy framework with fault injection scenarios used for robustness evaluation.
 
-MAP --> FRONTIER
-
-FRONTIER[Frontier Exploration]
-
-FRONTIER --> ASTAR
-
-ASTAR[A* Path Planner]
-
-ASTAR --> PP
-
-PP[Pure Pursuit Controller]
-
-PP --> DYN
-
-DYN[Rover Dynamics & Environment]
-
-DYN -. Feedback .-> GPS
-DYN -. Feedback .-> IMU
-DYN -. Feedback .-> LIDAR
-```
-
-```mermaid
-flowchart TD
-
-EXPLORE[EXPLORE]
-
-EXPLORE --> CHECK{Battery < Threshold?}
-
-CHECK -->|No| EXPLORE
-
-CHECK -->|Yes| RETURN[RETURN_HOME]
-
-RETURN --> HOME{Reached Home?}
-
-HOME -->|No| RETURN
-
-HOME -->|Yes| COMPLETE[MISSION_COMPLETE]
-```
-```mermaid
-flowchart TD
-
-NOISE[GPS Noise]
-
-DROPOUT[GPS Dropout]
-
-SLIP[Wheel Slip]
-
-NOISE --> EKF[EKF Localization]
-
-DROPOUT --> EKF
-
-SLIP --> DYN[Rover Dynamics]
-```
-
+<p align="center">
+  <img src="screenshots/ardiag.png" width="100%">
+</p>
 
 ## Fault Injection Experiments
 
