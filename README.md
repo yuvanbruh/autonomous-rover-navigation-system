@@ -1,4 +1,6 @@
 # Autonomous Planetary Rover Navigation and Exploration System
+Autonomous rover simulation featuring EKF localization, occupancy grid mapping, frontier-based exploration, A* path planning, Pure Pursuit control, and fault-tolerant mission autonomy.
+
 
 ## Overview
 
