@@ -231,6 +231,22 @@ pip install -r requirements.txt
 
 python main.py
 ```
+## Usage
+
+Run the simulator:
+
+```bash
+python main.py
+```
+
+The rover will:
+
+- Localize using EKF
+- Build an occupancy grid map
+- Explore unknown regions
+- Plan paths using A*
+- Track paths using Pure Pursuit
+- Return home when battery is low
 ## Technologies Used
 
 * Python
