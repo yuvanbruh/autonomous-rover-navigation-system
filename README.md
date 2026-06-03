@@ -105,7 +105,15 @@ GPS measurements are temporarily disabled, forcing the EKF to rely on prediction
 Terrain-induced wheel slip is increased beyond nominal conditions, introducing discrepancies between commanded and realized rover motion.
 
 ---
+## Experimental Evaluation Summary
 
+| Scenario | Outcome |
+|-----------|----------|
+| Nominal Operation | Mission Completed Successfully |
+| GPS Noise (σ=3) | Successful Localization |
+| GPS Noise (σ=5) | Increased Localization Error |
+| GPS Dropout | Mission Completed with Reduced Accuracy |
+| Severe Wheel Slip | Increased Tracking Error |
 ## Results
 
 ### Autonomous Exploration
