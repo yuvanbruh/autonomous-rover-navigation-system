@@ -15,8 +15,6 @@ The system also evaluates robustness under multiple fault conditions including G
 
 ![Autonomous Exploration](screenshots/01_exploration.png)
 
-# Autonomous Rover Navigation System
-
 ## System Architecture
 
 The rover performs autonomous exploration using sensor fusion, occupancy grid mapping, frontier-based exploration, A* path planning, and Pure Pursuit control.
