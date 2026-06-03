@@ -232,7 +232,7 @@ ROVER/
 ```bash
 git clone https://github.com/yuvanbruh/autonomous-rover-navigation-system.git
 
-cd rover
+cd autonomous-rover-navigation-system
 
 pip install -r requirements.txt
 
