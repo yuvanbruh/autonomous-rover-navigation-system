@@ -31,20 +31,7 @@ Mission execution is governed by a finite-state autonomy framework with fault in
 <p align="center">
   <img src="screenshots/ardiag.png" width="100%">
 </p>
-```
-## Project Highlights
 
-- Extended Kalman Filter (EKF) localization
-- GPS + IMU sensor fusion
-- LiDAR-based Occupancy Grid Mapping
-- Frontier-Based Autonomous Exploration
-- A* Path Planning
-- Pure Pursuit Path Tracking
-- Mission-Level State Machine
-- GPS Noise Fault Injection
-- GPS Dropout Fault Injection
-- Severe Wheel Slip Modeling
-  ```
 ## Key Features
 
 ### Localization
