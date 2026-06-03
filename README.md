@@ -11,6 +11,9 @@ The rover autonomously transitions between exploration, return-home, and mission
 The system also evaluates robustness under multiple fault conditions including GPS noise, GPS dropout, and severe wheel-slip disturbances.
 
 ---
+## Demonstration
+
+![Autonomous Exploration](screenshots/01_exploration.png)
 
 # Autonomous Rover Navigation System
 
