@@ -178,7 +178,19 @@ ROVER/
 │
 └── main.py
 ```
----
+### Module Overview
+
+| Module | Purpose |
+|----------|----------|
+| environment | Terrain, obstacles, world generation, cost maps |
+| estimation | EKF-based localization and state estimation |
+| mapping | Occupancy grid mapping |
+| planning | Frontier exploration and A* path planning |
+| intelligence | Mission autonomy and state machine |
+| rover | Sensors, dynamics, control, and slip modeling |
+| visualization | Rendering, path visualization, trajectory analysis |
+```
+```
 
 ## Technologies Used
 
