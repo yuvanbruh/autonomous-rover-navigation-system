@@ -148,22 +148,26 @@ Comparison between:
 ### GPS Noise (σ = 3)
 
 ![GPS Noise Sigma 3](screenshots/03_gps_noise_sigma3.png)
-
+Gaussian noise was injected into GPS measurements to evaluate EKF robustness under degraded sensor quality. The rover successfully completed the mission while maintaining acceptable localization accuracy.
 ### GPS Noise (σ = 5)
 
 ![GPS Noise Sigma 5](screenshots/04_gps_noise_sigma5.png)
+A higher GPS noise level was introduced to stress the localization system. The EKF continued to track rover position, although estimation error increased compared to nominal operation.
 
 ### GPS Dropout
 
 ![GPS Dropout](screenshots/05_gps_dropout.png)
+GPS measurements were temporarily removed, forcing the EKF to rely on prediction and remaining sensor information. The rover successfully completed the mission with reduced localization accuracy.
 
 ### Severe Wheel Slip
 
 ![Wheel Slip](screenshots/06_severe_wheel_slip.png)
+Wheel slip was increased beyond nominal terrain conditions, creating a mismatch between commanded and actual motion. The rover experienced increased path-tracking error but remained operational.
 
 ### Mission Completion
 
 ![Mission Complete](screenshots/07_mission_complete.png)
+After completing exploration objectives and monitoring battery state, the rover autonomously returned to its starting location and successfully completed the mission.
 
 ---
 
