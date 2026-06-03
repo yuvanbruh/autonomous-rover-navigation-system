@@ -90,6 +90,24 @@ Mission execution is governed by a finite-state autonomy framework with fault in
 * Severe Wheel Slip
 
 ---
+## Core Algorithms
+
+### Localization
+- Extended Kalman Filter (EKF)
+
+### Mapping
+- Occupancy Grid Mapping
+
+### Exploration
+- Frontier Detection
+- Frontier Selection
+
+### Planning
+- A* Search Algorithm
+
+### Control
+- Pure Pursuit Controller
+- Proportional Steering Control
 ## Fault Injection Experiments
 
 ### GPS Noise
@@ -114,7 +132,7 @@ Terrain-induced wheel slip is increased beyond nominal conditions, introducing d
 | GPS Noise (σ=5) | Increased Localization Error |
 | GPS Dropout | Mission Completed with Reduced Accuracy |
 | Severe Wheel Slip | Increased Tracking Error |
-## Results
+## Experimental Evaluation
 
 ### Autonomous Exploration
 
@@ -154,7 +172,6 @@ Comparison between:
 
 ---
 
-## Project Structure
 ## Project Structure
 
 ```text
