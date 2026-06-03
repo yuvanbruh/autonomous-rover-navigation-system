@@ -12,6 +12,26 @@ The system also evaluates robustness under multiple fault conditions including G
 
 ---
 
+# Autonomous Rover Navigation System
+
+## System Architecture
+
+The rover performs autonomous exploration using sensor fusion, occupancy grid mapping, frontier-based exploration, A* path planning, and Pure Pursuit control.
+
+<p align="center">
+  <img src="screenshots/arcdiag.png" width="100%">
+</p>
+
+---
+
+## Mission Autonomy and Fault Tolerance
+
+Mission execution is governed by a finite-state autonomy framework with fault injection scenarios used for robustness evaluation.
+
+<p align="center">
+  <img src="screenshots/ardiag.png" width="100%">
+</p>
+
 ## Key Features
 
 ### Localization
@@ -59,26 +79,6 @@ The system also evaluates robustness under multiple fault conditions including G
 * Severe Wheel Slip
 
 ---
-# Autonomous Rover Navigation System
-
-## System Architecture
-
-The rover performs autonomous exploration using sensor fusion, occupancy grid mapping, frontier-based exploration, A* path planning, and Pure Pursuit control.
-
-<p align="center">
-  <img src="screenshots/arcdiag.png" width="100%">
-</p>
-
----
-
-## Mission Autonomy and Fault Tolerance
-
-Mission execution is governed by a finite-state autonomy framework with fault injection scenarios used for robustness evaluation.
-
-<p align="center">
-  <img src="screenshots/ardiag.png" width="100%">
-</p>
-
 ## Fault Injection Experiments
 
 ### GPS Noise
