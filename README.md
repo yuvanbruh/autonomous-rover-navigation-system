@@ -101,6 +101,7 @@ Mission execution is governed by a finite-state autonomy framework with fault in
 - Pure Pursuit Controller
 - Proportional Steering Control
 ---
+
 ## Fault Injection Experiments
 
 ### GPS Noise
@@ -125,6 +126,7 @@ Terrain-induced wheel slip is increased beyond nominal conditions, introducing d
 | GPS Noise (σ=5) | Increased Localization Error |
 | GPS Dropout | Mission Completed with Reduced Accuracy |
 | Severe Wheel Slip | Increased Tracking Error |
+
 ## Experimental Evaluation
 
 ### Autonomous Exploration
@@ -218,8 +220,7 @@ ROVER/
 | intelligence | Mission autonomy and state machine |
 | rover | Sensors, dynamics, control, and slip modeling |
 | visualization | Rendering, path visualization, trajectory analysis |
-```
-```
+
 ## Installation
 
 ```bash
@@ -247,6 +248,7 @@ The rover will:
 - Plan paths using A*
 - Track paths using Pure Pursuit
 - Return home when battery is low
+  
 ## Technologies Used
 
 * Python
