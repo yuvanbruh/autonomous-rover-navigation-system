@@ -108,6 +108,7 @@ Mission execution is governed by a finite-state autonomy framework with fault in
 ### Control
 - Pure Pursuit Controller
 - Proportional Steering Control
+---
 ## Fault Injection Experiments
 
 ### GPS Noise
