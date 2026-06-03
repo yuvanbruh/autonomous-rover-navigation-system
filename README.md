@@ -220,7 +220,7 @@ ROVER/
 ## Installation
 
 ```bash
-git clone https://github.com/yourusername/rover.git
+git clone https://github.com/yuvanbruh/autonomous-rover-navigation-system.git
 
 cd rover
 
