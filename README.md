@@ -136,21 +136,48 @@ Comparison between:
 ---
 
 ## Project Structure
+## Project Structure
 
 ```text
-project/
+ROVER/
 
 ├── environment/
-├── rover/
+│   ├── mars_world.py
+│   ├── obstacles.py
+│   ├── terrain.py
+│   └── costmap.py
+│
 ├── estimation/
+│   ├── localisation.py
+│   └── ekf.py
+│
 ├── mapping/
+│   └── occupancy_grid.py
+│
 ├── planning/
+│   ├── frontier_planner.py
+│   └── astar.py
+│
 ├── intelligence/
-├── faults/
+│   └── mission_state.py
+│
+├── rover/
+│   ├── sensors.py
+│   ├── dynamics.py
+│   ├── purepursuit.py
+│   ├── slip_model.py
+│   └── state.py
+│
 ├── visualization/
+│   ├── renderer.py
+│   ├── rover_renderer.py
+│   ├── path_renderer.py
+│   └── trajectory_plotter.py
+│
+├── screenshots/
+│
 └── main.py
 ```
-
 ---
 
 ## Technologies Used
