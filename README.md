@@ -16,6 +16,7 @@ The system also evaluates robustness under multiple fault conditions including G
 ## Demonstration
 
 ![Autonomous Exploration](screenshots/01_exploration.png)
+The rover autonomously explores an unknown environment, incrementally builds an occupancy grid map, detects exploration frontiers, plans collision-free paths, and navigates while avoiding obstacles.
 
 ## System Architecture
 
